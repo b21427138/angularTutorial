@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { NgFor } from '@angular/common';
-import { HousingLocation } from '../housing-interface';
+import { IHousingLocation } from '../housing-interface';
 import { HousingService } from '../housing.service';
 
 @Component({
@@ -12,8 +12,8 @@ import { HousingService } from '../housing.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  housingLocationList: HousingLocation[] = [];
-  testHousingLocation: HousingLocation;
+  housingLocationList: IHousingLocation[] = [];
+  testHousingLocation: IHousingLocation;
   housingService: HousingService = inject(HousingService);
 
   constructor() {
