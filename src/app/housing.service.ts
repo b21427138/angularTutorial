@@ -31,7 +31,7 @@ export class HousingService {
     name: 'Test Home',
     city: 'Test city',
     state: 'ST',
-    photo: `${this.baseUrl}/example-house.jpg`,
+    photo: `${this.baseUrl}/brandon-griggs-wR11KBaB86U-unsplash.jpg`,
     availableUnits: 99,
     wifi: true,
     laundry: false,
