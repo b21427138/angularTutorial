@@ -1,9 +1,10 @@
 <main>
-    <a [routerLink]="['/']">
-        <header class="brand-name">
+    <header class="brand-name">
+        <a class="header-logo" [routerLink]="['/']">
             <img class="brand-logo" src="logo.svg" alt="logo" aria-hidden="true" />
-        </header>
-    </a>
+        </a>
+        <a class="header-link" routerLink="/testForm1">Test Form1</a>
+    </header>
     <section class="content">
         <router-outlet />
     </section>

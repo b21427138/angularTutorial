@@ -1,1 +1,4 @@
-<p>test-form1 works!</p>
+<label for="nameField">Name: </label>
+<input id="nameField" type="text" [formControl]="name">
+
+<p>Name field value: {{ name.value }}</p>
