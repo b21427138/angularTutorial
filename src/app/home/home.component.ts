@@ -24,7 +24,7 @@ export class HomeComponent {
   }
 
   filterResults(text: string) {
-    if (text == '') {
+    if (text === '') {
       this.filteredLocationList = this.housingLocationList;
       return;
     }
@@ -41,5 +41,6 @@ export class HomeComponent {
   submit($event: SubmitEvent) {
     $event.preventDefault();
     console.log('Enter pressed');
+    // this.filterResults($event.submitter!.value);
   }
 }
