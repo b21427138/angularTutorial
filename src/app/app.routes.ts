@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { Test1Component } from './test1/test1.component';
+import { TestForm1Component } from './test-form1/test-form1.component';
 
 export const routes: Routes = [
     {
@@ -13,8 +14,8 @@ export const routes: Routes = [
         component: DetailsComponent,
         title: 'Home Details'
     }, {
-        path: 'testPath1',
-        component: Test1Component,
-        title: 'Test Path 1'
+        path: 'testForm1',
+        component: TestForm1Component,
+        title: 'Test Form 1'
     }
 ];
