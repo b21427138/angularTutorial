@@ -14,12 +14,16 @@ import { HousingService } from '../housing.service';
 export class HomeComponent {
   housingService: HousingService = inject(HousingService);
   housingLocationList: IHousingLocation[] = [];
-  testHousingLocation: IHousingLocation;
+  testHousingLocation!: IHousingLocation;
   filteredLocationList: IHousingLocation[] = [];
 
   constructor() {
-    this.housingLocationList = this.housingService.getAllHousingLocations();
-    this.testHousingLocation = this.housingService.getTestHousingLocation();
+    this.housingService.getAllHousingLocations().then((locations) => {
+      this.housingLocationList = locations;
+    });
+    this.housingService.getTestHousingLocation().then((location) => {
+      this.testHousingLocation = location as IHousingLocation;
+    });
     this.filteredLocationList = this.housingLocationList;
   }
 

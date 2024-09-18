@@ -1,4 +1,14 @@
-<label for="nameField">Name: </label>
-<input id="nameField" type="text" [formControl]="name">
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="firstName">First Name: </label>
+    <input id="firstName" type="text" formControlName="firstName">
 
-<p>Name field value: {{ name.value }}</p>
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" type="text" formControlName="lastName">
+
+    <button type="submit">Submit</button>
+</form>
+
+<p>First Name field value: {{ profileForm.controls.firstName.value }}</p>
+<p>Last Name field value: {{ profileForm.value.lastName }}</p>
+
+<button (click)="updateName()">update name</button>

@@ -1,28 +1,30 @@
 import { Injectable } from '@angular/core';
 import { IHousingLocation } from './housing-interface';
-import { housingLocationList, testHousingLocation } from './housingData';
+// import { housingLocationList, testHousingLocation } from './OldhousingData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HousingService {
+  url = "http://localhost:3000/locations";
 
-  constructor() { }
+  async getAllHousingLocations(): Promise<IHousingLocation[]> {
+    console.log('Fetching housing locations from server');
+    const response = (await fetch(this.url));
+    const json = response.json();
+    console.log('Fetched housing locations from server');
+    console.log(json);
 
-
-  getTestHousingLocation(): IHousingLocation {
-    return testHousingLocation;
+    return json;
   }
 
-  getAllHousingLocations(): IHousingLocation[] {
-    return housingLocationList;
+  getTestHousingLocation(): Promise<IHousingLocation> {
+    return this.getHousingLocationById(9999);
   }
 
-  getHousingLocationById(id: number): IHousingLocation | undefined {
-    if (id === 9999) {
-      return this.getTestHousingLocation();
-    }
-    return housingLocationList.find((housingLocation) => housingLocation.id === id);
+  getHousingLocationById(id: number): Promise<IHousingLocation> {
+    return this.getAllHousingLocations()
+      .then(hls => hls.find((hl) => hl.id === id) as IHousingLocation);
   }
 
   submitApplication(firstName: string, lastName: string, email: string) {
